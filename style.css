@@ -40,12 +40,32 @@ h1 {
     width: 78%;
     max-width: 1200px;
     margin: 0 auto;
-    color: navy;
     padding-top: 10px;
 }
 
+
 h2 {
 margin: 10px 0;
+}
+
+.soringForm {
+text-align: end;
+}
+
+.movieList {
+    display: flex;
+    width: 100%;
+    margin-top: 20px;
+    border: 2px solid grey;
+    border-radius: 15px;
+    padding: 5px;
+}
+
+.movieCard {
+    flex-wrap: wrap;
+    width:30%;
+    height: 30%;
+    background-color: aqua;
 }
 
 .newMovie > div {
@@ -60,7 +80,6 @@ margin: 10px 0;
         margin-left: 0;
     }
     .container {
-        color: navy;
         padding: 5px 0;
     }
   }
@@ -69,7 +88,6 @@ margin: 10px 0;
 
   @media only screen and (max-width: 600px) {
     .container {
-        color: navy;
         width: 100%;
         padding: 5px 20px;
     }
