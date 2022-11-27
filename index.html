@@ -4,12 +4,14 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/style.css" />
     <title>Movie Data</title>
   </head>
   <body>
     <header>
       <img
-        src="https://images.unsplash.com/photo-1626814026160-2237a95fc5a0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+        class="heroImage"
+        src="https://img.freepik.com/premium-vector/cinema-poster-night-film-movies-popcorn-retro-movie-posters-template-illustration-set_102902-1871.jpg?w=740"
         alt="Movie data hero"
       />
       <h1>A movie list only for you!</h1>
@@ -37,15 +39,32 @@
       </div>
       <h2>Not enough? Add it yourself!</h2>
       <form class="newMovie">
-        <label for="newMovieName">Movie Name* </label>
-        <input type="text" id="newMovieName" required />
-        <label for="newMovieYear">Realease Year* </label>
-        <input type="number" id="newMovieYear" min="1900" max="2023" required />
-        <label for="newMovieRating">Your rating* </label>
-        <label for="newMovieCast">Movie Cast </label>
-        <input type="text" id="newMovieCast" />
-        <label for="newMoviePlot">Movie Plot </label>
-        <input type="text" id="newMoviePlot" />
+        <div class="addName">
+          <label for="newMovieName">Movie Name* </label>
+          <input type="text" id="newMovieName" required />
+        </div>
+        <div class="addYear">
+          <label for="newMovieYear">Realease Year* </label>
+          <input
+            type="number"
+            id="newMovieYear"
+            min="1900"
+            max="2023"
+            required
+          />
+        </div>
+        <div class="addRating">
+          <label for="newMovieRating">Your rating* </label>
+          <input type="number" id="newMovieRating" min="1" max="10" required />
+        </div>
+        <div class="addCast">
+          <label for="newMovieCast">Movie Cast </label>
+          <input type="text" id="newMovieCast" />
+        </div>
+        <div class="addPlot">
+          <label for="newMoviePlot">Movie Plot </label>
+          <input type="text" id="newMoviePlot" />
+        </div>
       </form>
     </div>
   </body>
