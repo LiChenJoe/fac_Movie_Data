@@ -9,41 +9,32 @@
   </head>
   <body>
     <header>
-      <img
-        class="heroImage"
-        src="https://img.freepik.com/premium-vector/cinema-poster-night-film-movies-popcorn-retro-movie-posters-template-illustration-set_102902-1871.jpg?w=740"
-        alt="Movie data hero"
-      />
-      <h1>A movie list only for you!</h1>
+      <section>
+        <h1>Personal Movie List</h1>
+        <nav>
+          <ul>
+            <li><a href="#movie_list"></a> Moive List</li>
+            <li><a href="#customise_list"></a> Customise the List</li>
+          </ul>
+        </nav>
+      </section>
     </header>
     <div class="container">
-      <h2>Pick what to watch your own way!</h2>
-      <form class="soringForm" action="">
-        <label for="sorting">Sorting by</label>
-        <select id="sorting">
-          <option value="recommand">Recommand (Defult)</option>
-          <option value="realeaseYear">Realease year</option>
-          <option value="rating">Rating</option>
-          <option value="runtime">Runtime</option>
-        </select>
-        <input type="submit" value="Submit" />
-      </form>
-      <div class="movieList">
-        <div class="movieCard">
-          <img src="" alt="" />
-          <div class="description">
-            <dov class="titleRow">
-              <h3 class="name">
-                <h6 class="year"></h6>
-              </h3>
-            </dov>
-            <h4 class="rating"></h4>
-            <p class="cast"></p>
-            <p class="plot"></p>
-          </div>
-        </div>
-      </div>
-      <h2>Not enough? Add it yourself!</h2>
+      <section class="sort_section">
+        <h2 id="movie_list">Your list, your way!</h2>
+        <form class="soringForm" action="">
+          <label for="sorting">Sorting by</label>
+          <select id="sorting">
+            <option value="recommand">Recommand (Defult)</option>
+            <option value="realeaseYear">Realease year</option>
+            <option value="rating">Rating</option>
+            <option value="runtime">Runtime</option>
+          </select>
+          <input type="submit" value="Submit" />
+        </form>
+      </section>
+      <div class="movieList"></div>
+      <h2 id="customise_list">Bring up more!</h2>
       <form class="newMovie">
         <div class="addName">
           <label for="newMovieName">Movie Name* </label>
@@ -63,6 +54,16 @@
           <label for="newMovieRating">Your rating* </label>
           <input type="number" id="newMovieRating" min="1" max="10" required />
         </div>
+        <div class="addRunTime">
+          <label for="newMovieRunTime">Movie Length* </label>
+          <input
+            type="number"
+            id="newMovieRunTime"
+            min="1"
+            max="240"
+            required
+          />
+        </div>
         <div class="addCast">
           <label for="newMovieCast">Movie Cast </label>
           <input type="text" id="newMovieCast" />
@@ -74,5 +75,6 @@
         <input type="submit" class="submit subTodo" value="Submit" />
       </form>
     </div>
+    <script src="/app.js"></script>
   </body>
 </html>
