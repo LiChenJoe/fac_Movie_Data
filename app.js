@@ -35,6 +35,7 @@ let movieData = {
 };
 
 let movieInfo = Object.values(movieData);
+let movieEntries = Object.entries(movieData);
 let sortingSelcect = document.querySelector("#sorting");
 
 
@@ -126,9 +127,7 @@ function renderingMovieList(a){
   function sortingFunction() {
   let currentSorting = sortingSelcect.options[sortingSelcect.selectedIndex];
   console.log(currentSorting);
-    if (currentSorting.value === "movieName") {
-      movieInfo.sort(sortingName);
-    } else if (currentSorting.value === "realeaseYear") {
+  if (currentSorting.value === "realeaseYear") {
       movieInfo.sort(sortingYear);
     } else if (currentSorting.value === "rating"){
       movieInfo.sort(sortingRating);
@@ -138,16 +137,6 @@ function renderingMovieList(a){
     console.log(movieInfo);
     renderingMovieList(movieInfo);
   }
-
-  function sortingName(a, b) {
-    if (a.Name > b.Name) {
-        return 1;
-    } else if (b.Name > a.Name) {
-        return -1;
-    } else {
-        return 0;
-    }
-}
 
   function sortingYear(a, b) {
     if (a.year > b.year) {
