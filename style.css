@@ -73,6 +73,8 @@ a {
 
 
 .sort_section {
+    width: 100%;
+    padding: 0 10px 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -104,38 +106,44 @@ h4 {
 
 }
 
-.newMoviePlot {
-    font-size: 0.7rem;
-}
-
 .newMovieCast {
-    font-size: 0.9rem;
+    font-size: 0.5rem;
+    margin: 10px 0 20px;
 }
 
-.soringForm {
+.newMoviePlot {
+    font-size: 0.8rem;
+}
+
+
+.rating {
 text-align: end;
 }
 
 .movieList {
     display: flex;
+    flex-wrap: wrap;
     width: 100%;
-    margin-top: 20px;
-    
-    border: 2px solid grey;
-    border-radius: 15px;
-    padding: 5px;
-    justify-content: space-between;
+    margin: 1% 10px 1% 0;
 }
 
 
 .createdCard {
-    padding: 10px;
-    width:30%;
-    height: 30%;
+    padding: 10px 15px;
+    margin: 5px;
+    width:22.5%;
+    border: 2px solid grey;
+    border-radius: 15px;
 }
 
-.newMovie > div {
-    margin: 8px 0;
+#newMovie > div {
+    margin: 8px 10px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 
@@ -191,6 +199,19 @@ text-align: end;
 
     h2 {
         text-align: center;
+    }
+
+    .createdCard {
+        width:100%;
+        
+    }
+    
+    h3,h4,h6,p {
+        font-size: .8rem;
+    }
+
+    .addRating {
+        width: 100%;
     }
     
   }

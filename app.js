@@ -34,18 +34,27 @@ let movieData = {
   },
 };
 
-const movieList = document.querySelector(".movieList");
+let movieInfo = Object.values(movieData);
+let sortingSelcect = document.querySelector("#sorting");
 
-  for (const key in movieData) {
+
+
+const movieList = document.querySelector(".movieList");
+renderingMovieList(movieInfo);
+
+
+function renderingMovieList(a){
+  movieList.innerHTML="";
+  console.log(movieInfo.length);
+  for (let i=0; i<a.length; i++) {
     const newDiv = document.createElement("div");
-    let nameBlock = document.createElement("div");
+    const nameBlock = document.createElement("div");
     const newH3Name = document.createElement("h3");
     const newH6Year = document.createElement("h6");
     const newH4Rating = document.createElement("h4");
     const new4RunTime = document.createElement("h4");
     const newPCast = document.createElement("p");
     const newPPlot = document.createElement("p");
-    const movieInfo = movieData[key];
     
       movieList.appendChild(newDiv);
       newDiv.classList.add("createdCard");
@@ -59,17 +68,113 @@ const movieList = document.querySelector(".movieList");
       newH4Rating.classList.add("newMovieRating");
       newDiv.appendChild(new4RunTime);
       newMovieRunTime.classList.add("newMovieRunTime");
-      newDiv.appendChild(newPPlot);
-      newPPlot.classList.add("newMoviePlot");
       newDiv.appendChild(newPCast);
       newPCast.classList.add("newMovieCast");
+      newDiv.appendChild(newPPlot);
+      newPPlot.classList.add("newMoviePlot");
 
-      newH3Name.innerHTML= movieInfo.name;
-      newH6Year.innerHTML= movieInfo.year
-      newH4Rating.innerHTML= movieInfo.rating;
-      new4RunTime.innerHTML= movieInfo.runtime;
-      newPPlot.innerHTML= movieInfo.plot;
-      newPCast.innerHTML= movieInfo.cast;
+      newH3Name.innerHTML= movieInfo[i].name;
+      newH6Year.innerHTML= movieInfo[i].year;
+      newH4Rating.innerHTML= movieInfo[i].rating;
+      new4RunTime.innerHTML= movieInfo[i].runtime;
+      newPCast.innerHTML= movieInfo[i].cast;
+      newPPlot.innerHTML= movieInfo[i].plot;
+      
   }
+}
+  
+  let movieForm = document.querySelector("#newMovie");
+
+  movieForm.addEventListener("submit", (e) => {
+    
+    e.preventDefault();
+      let newMovieName = document.querySelector("#newMovieName").value;
+      let newMovieYear = document.querySelector("#newMovieYear").value;
+      let newMovieRating = "Rate:" + document.querySelector("#newMovieRating").value;
+      let newMovieRunTime = "Length:" + document.querySelector("#newMovieRunTime").value;
+      let newMovieCast = "Cast: " + document.querySelector("#newMovieCast").value;
+      let newMoviePlot = "Plot: " + document.querySelector("#newMoviePlot").value;
+      let newMovie = {name:newMovieName, year:newMovieYear, rating:newMovieRating, runtime:newMovieRunTime, cast:newMovieCast, plot:newMoviePlot};
+      movieInfo.push(newMovie);
+      /*let newMovieCard = Object.values(newMovie);*/
+      /* console.log(movieInfo.length);
+      if (movieInfo.length>2) {
+        for (let j=0; j<movieInfo.length; j++){
+            movieInfo.shift();
+            console.log(movieInfo.length);
+            console.log(j);
+          } 
+      } else if (movieInfo.length==2) {
+        movieInfo.shift();
+        console.log(movieInfo.length);
+        console.log(movieInfo);
+      } */
+      document.querySelector("#newMovieName").value= "";
+      document.querySelector("#newMovieYear").value= "";
+      document.querySelector("#newMovieRating").value= "";
+      document.querySelector("#newMovieRunTime").value= "";
+      document.querySelector("#newMovieCast").value= "";
+      document.querySelector("#newMoviePlot").value= "";
+      console.log(movieInfo);
+    sortingFunction();
+      
+  });
+
+  sortingSelcect.addEventListener("change",sortingFunction);
   
   
+  function sortingFunction() {
+  let currentSorting = sortingSelcect.options[sortingSelcect.selectedIndex];
+  console.log(currentSorting);
+    if (currentSorting.value === "movieName") {
+      movieInfo.sort(sortingName);
+    } else if (currentSorting.value === "realeaseYear") {
+      movieInfo.sort(sortingYear);
+    } else if (currentSorting.value === "rating"){
+      movieInfo.sort(sortingRating);
+    } else if (currentSorting.value === "runtime"){
+      movieInfo.sort(sortingRuntime);
+    }
+    console.log(movieInfo);
+    renderingMovieList(movieInfo);
+  }
+
+  function sortingName(a, b) {
+    if (a.Name > b.Name) {
+        return 1;
+    } else if (b.Name > a.Name) {
+        return -1;
+    } else {
+        return 0;
+    }
+}
+
+  function sortingYear(a, b) {
+    if (a.year > b.year) {
+        return 1;
+    } else if (b.year > a.year) {
+        return -1;
+    } else {
+        return 0;
+    }
+}
+
+function sortingRating(a, b) {
+  if (a.rating > b.rating) {
+      return -1;
+  } else if (b.rating > a.rating) {
+      return 1;
+  } else {
+      return 0;
+  }
+}
+
+function sortingRuntime(a, b) {
+  if (a.runtime > b.runtime) {
+      return 1;
+  } else if (b.runtime > a.runtime) {
+      return -1;
+  } else {
+      return 0;
+  }
+}
