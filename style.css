@@ -150,17 +150,31 @@ input::-webkit-inner-spin-button {
 
 @media only screen and (max-width: 1086px) {
     .container {
-        padding: 5px 0;
+        padding: 5px 5px 5px 15px;
     }
 
     .movieList {
     flex-wrap: wrap;
     }
-
     .createdCard {
-        width:50%;
+        width:32%;
     }
   }
+
+  @media only screen and (max-width: 950px){
+    .container {
+        padding: 5px 0;
+    }
+
+    .movieList {
+    flex-wrap: wrap;
+    justify-content: center;
+    }
+
+    .createdCard {
+        width:48%;
+    }
+}
 
 
 
